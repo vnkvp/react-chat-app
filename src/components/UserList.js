@@ -1,6 +1,6 @@
 import React from 'react';
-import './UserList.css';
-import defaultAvatar from './default-avatar.png';
+import '../styles/UserList.css';
+import defaultAvatar from '../images/default-avatar.png';
 
 function UserList({ userId }) {
   return (

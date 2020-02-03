@@ -1,8 +1,7 @@
 import Moment from 'react-moment';
 import React, { useState, useEffect } from 'react';
-
-import './Chat.css';
-import defaultAvatar from './default-avatar.png';
+import '../styles/Chat.css';
+import defaultAvatar from '../images/default-avatar.png';
 
 function Chat(props) {
   const [pendingMessage, setPendingMessage] = useState('');

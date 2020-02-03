@@ -1,10 +1,10 @@
 import React from 'react';
+import './styles/App.css';
+import chatkitLogo from './images/chatkit-logo.svg';
+import Chat from './components/Chat';
+import UserList from './components/UserList';
+import Login from './components/Login';
 
-import './App.css';
-import Chat from './Chat';
-import UserList from './UserList';
-import Login from './Login';
-import chatkitLogo from './chatkit-logo.svg';
 
 function App() {
   const urlParams = new URLSearchParams(window.location.search);
