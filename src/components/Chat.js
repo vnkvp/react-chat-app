@@ -1,7 +1,9 @@
 import Moment from 'react-moment';
 import React, { useState, useEffect } from 'react';
+import { withChatkitOneToOne } from '@pusher/chatkit-client-react'
 import '../styles/Chat.css';
 import defaultAvatar from '../images/default-avatar.png';
+
 
 function Chat(props) {
   const [pendingMessage, setPendingMessage] = useState('');
@@ -56,6 +58,7 @@ function Chat(props) {
         <div className="Chat__titlebar__details">
           {/*TODO: Get other user's name from Chatkit */}
           <span>[OTHER USERS NAME HERE]</span>
+          <span>{props.chatkit.isLoading ? 'Loading...' : props.chatkit.otherUser.name}</span>
         </div>
       </div>
       <div className="Chat__messages" ref={messageList}>
@@ -122,4 +125,4 @@ function Message({ isOwnMessage, isLatestMessage, createdAt, textContent }) {
   );
 }
 
-export default Chat;
+export default withChatkitOneToOne(Chat)

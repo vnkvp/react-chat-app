@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles/App.css';
+import { tokenProvider, instanceLocator, user } from './config'
+import { ChatkitProvider } from '@pusher/chatkit-client-react'
 import chatkitLogo from './images/chatkit-logo.svg';
 import Chat from './components/Chat';
 import UserList from './components/UserList';
@@ -18,11 +20,19 @@ function App() {
           <div className="App__chatwindow">
             <UserList userId={userId} />
             <Chat />
+            <ChatkitProvider
+            instanceLocator = {instanceLocator}
+            userId = {userId}
+            tokenProvider = {tokenProvider}
+            >
+              <UserList userId={userId} />
+              <Chat />
+            </ChatkitProvider>
           </div>
         </>
       ) : (
-        <Login />
-      )}
+          <Login />
+        )}
       <div className="App__backdrop">
         <img
           className="App__backdrop__logo"
